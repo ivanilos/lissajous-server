@@ -13,18 +13,16 @@ import (
 	"image/color"
 	"image/gif"
 	"io"
+	"log"
 	"math"
 	"math/rand"
+	"net/http"
 	"os"
+	"time"
 )
 
 //!-main
 // Packages not needed by version in book.
-import (
-	"log"
-	"net/http"
-	"time"
-)
 
 //!+main
 
@@ -49,7 +47,7 @@ func main() {
 		}
 		http.HandleFunc("/", handler)
 		//!-http
-		log.Fatal(http.ListenAndServe("localhost:8000", nil))
+		log.Fatal(http.ListenAndServe("0.0.0.0:8000", nil))
 		return
 	}
 	//!+main
