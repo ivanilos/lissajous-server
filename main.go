@@ -9,6 +9,7 @@
 package main
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/gif"
@@ -47,7 +48,12 @@ func main() {
 		}
 		http.HandleFunc("/", handler)
 		//!-http
-		log.Fatal(http.ListenAndServe("0.0.0.0:8000", nil))
+
+		HOST := os.Getenv("HOST")
+		PORT := os.Getenv("PORT")
+
+		addr := fmt.Sprintf("%s:%s", HOST, PORT)
+		log.Fatal(http.ListenAndServe(addr, nil))
 		return
 	}
 	//!+main
