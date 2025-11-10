@@ -11,3 +11,8 @@ go build -o main
 A lissajous gif is shown on `localhost:8000`
 
 ![lissajous image](img/lissajous_example.png)
+
+## Cloud deployment
+This is hosted on a free tier on render
+
+https://lissajous-server.onrender.com/
