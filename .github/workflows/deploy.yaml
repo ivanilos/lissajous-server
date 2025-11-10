@@ -1,0 +1,23 @@
+name: lissajous server automatic deploy on render
+run-name: Starting deploy on render 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v5
+
+      - name: Use go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.25.3'
+
+      -
+        name: push
+        run: |
+          curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
